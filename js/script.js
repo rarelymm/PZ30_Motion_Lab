@@ -11,28 +11,28 @@ const status = document.querySelector("#status");
 
 // ЗАДАНИЕ 1. Кнопка «Переместить».
 moveButton.addEventListener("click", () => {
-  // TODO 1: переключите у rocket класс "is-moved" методом classList.toggle().
-  // TODO 2: измените текст status через textContent.
+    rocket.classList.toggle("is-moved");
+    status.textContent = "Ракета перемещена";
 });
 
 // ЗАДАНИЕ 2. Кнопка «Сменить цвет».
 colorButton.addEventListener("click", () => {
-  // TODO 3: переключите у rocket класс "is-colored".
-  // TODO 4: измените текст status.
+    rocket.classList.toggle("is-colored");
+    status.textContent = "Цвет изменен";
 });
 
 // ЗАДАНИЕ 3. Кнопка «Подпрыгнуть».
 jumpButton.addEventListener("click", () => {
-  // TODO 5: вызовите rocketIcon.animate() с тремя кадрами:
-  //   { transform: "translateY(0)" }
-  //   { transform: "translateY(-45px)" }
-  //   { transform: "translateY(0)" }
-  // Параметры: { duration: 600, easing: "ease-in-out" }.
-  // TODO 6: измените текст status.
+    rocketIcon.animate([
+        { transform: "translateY(0)" },
+        { transform: "translateY(-45px)" },
+        { transform: "translateY(0)" }
+    ], { duration: 600, easing: "ease-in-out" });
+    status.textContent = "Ракета подпрыгнула";
 });
 
 // ЗАДАНИЕ 4. Кнопка «Сбросить».
 resetButton.addEventListener("click", () => {
-  // TODO 7: удалите у rocket оба класса через classList.remove().
-  // TODO 8: измените текст status на "Настройки сброшены.".
+    rocket.classList.remove("is-moved", "is-colored");
+    status.textContent = "Настройки сброшены.";
 });
